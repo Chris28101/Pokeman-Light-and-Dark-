@@ -16,8 +16,10 @@ screen = pygame.display.set_mode((screen_height, screen_width))
 background = pygame.image.load("./background.png")
 background = pygame.transform.scale(background, (1000, 1000))
 
-
-
+# pokemon image
+dugtrio = pygame.image.load("./dugtrio.png")
+x = 0
+y = 0
 
 run = True
 while run:
@@ -25,6 +27,23 @@ while run:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             run = False
+
+
+    # displays pokemon
+    screen.blit(dugtrio,(x,y))
+    dugtrio = pygame.transform.scale(dugtrio, (250, 250))
+
+
+    key = pygame.key.get_pressed()
+    if key[pygame.K_LEFT] == True:
+        x -= 10
+    if key[pygame.K_RIGHT] == True:
+        x += 10
+    if key[pygame.K_UP] == True:
+        x -= 10
+    if key[pygame.K_DOWN] == True:
+        x += 10    
+    pygame.display.flip()
 
     pygame.display.flip()
     pygame.display.update()
