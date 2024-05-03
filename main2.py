@@ -35,14 +35,14 @@ while run:
 
 
     key = pygame.key.get_pressed()
-    if key[pygame.K_LEFT] == True:
+    if key[pygame.K_a] == True:
         x -= 10
-    if key[pygame.K_RIGHT] == True:
+    if key[pygame.K_d] == True:
         x += 10
-    if key[pygame.K_UP] == True:
-        x -= 10
-    if key[pygame.K_DOWN] == True:
-        x += 10    
+    if key[pygame.K_w] == True:
+        y -= 10
+    if key[pygame.K_s] == True:
+        y += 10    
     pygame.display.flip()
 
     pygame.display.flip()
