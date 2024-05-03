@@ -18,6 +18,7 @@ background = pygame.transform.scale(background, (1000, 1000))
 
 # pokemon image
 dugtrio = pygame.image.load("./dugtrio.png")
+mc = pygame.image.load("./mc.png")
 x = 0
 y = 0
 
@@ -31,18 +32,21 @@ while run:
 
     # displays pokemon
     screen.blit(dugtrio,(x,y))
-    dugtrio = pygame.transform.scale(dugtrio, (250, 250))
+    dugtrio = pygame.transform.scale(dugtrio, (100, 100))
+    #displays main character
+    screen.blit(dugtrio,(x,y))
 
-
+    screen.blit(mc,(x,y))
+    mc = pygame.transform.scale(mc, (90,90))
     key = pygame.key.get_pressed()
     if key[pygame.K_a] == True:
-        x -= 10
+        x -= 0.8
     if key[pygame.K_d] == True:
-        x += 10
+        x += 0.8
     if key[pygame.K_w] == True:
-        y -= 10
+        y -= 0.8
     if key[pygame.K_s] == True:
-        y += 10    
+        y += 0.8  
     pygame.display.flip()
 
     pygame.display.flip()
