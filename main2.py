@@ -1,8 +1,10 @@
 import pygame
-
+from pygame import mixer
 
 
 pygame.init()
+mixer.init()
+#loadingthe music 
 
 #Screen witdh and screen height
 screen_width = 1000
@@ -34,7 +36,7 @@ while run:
     screen.blit(dugtrio,(x,y))
     dugtrio = pygame.transform.scale(dugtrio, (100, 100))
     #displays main character
-    screen.blit(dugtrio,(x,y))
+
 
     screen.blit(mc,(x,y))
     mc = pygame.transform.scale(mc, (90,90))
