@@ -1,6 +1,7 @@
 # gameFont = pygame.freetype.Font("Pokemon GB.ttf", 32)
 import pygame
-from pygame import freetype 
+from pygame import freetype
+from pygame import event 
 import sys
 pygame.init()
 screen = pygame.display.set_mode([600,600])
@@ -15,8 +16,8 @@ background = white
 framerate = 60  
 circle_x = 300
 circle_y = 300
-circle_x_direction = 2
-circle_y_direction = 1
+circle_x_direction = 10
+circle_y_direction = 8
 player_width = 30
 player_height = 50
 player_x = 300
@@ -36,12 +37,13 @@ def update_ball_posistion():
     global circle_x_direction 
     global circle_y_direction 
     global score
+
     if circle_x_direction > 0:
         if circle_x < 570:
             circle_x += circle_x_direction
         else: 
             circle_x_direction *= -1
-            score += 1 
+            score += 1
 
     elif circle_x_direction < 0:
         if circle_x > 30:
@@ -62,6 +64,8 @@ def update_ball_posistion():
         else: 
             circle_y_direction *= -1
             score += 1
+
+            
 def update_player_posistion():
     global player_x 
     global player_y 
@@ -96,6 +100,7 @@ running = True
 while running:
     timer.tick(framerate)
     update_ball_posistion()
+    update_player_posistion()
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
@@ -107,15 +112,28 @@ while running:
 
     pygame.draw.rect(screen,blue,[player_x,player_y,player_width,player_height])
     key = pygame.key.get_pressed()
-    if key[pygame.K_LEFT] == True:
-        player_x -= player_speed
-    if key[pygame.K_RIGHT] == True:
-        player_x += player_speed
-    if key[pygame.K_UP] == True:
-        player_y -= player_speed
-    if key[pygame.K_DOWN] == True:
-        player_y += player_speed 
-    pygame.display.flip()
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+
+    if key[pygame.K_a] == True:
+        x -= 0.8
+    if key[pygame.K_d] == True:
+        x += 0.8
+    if key[pygame.K_w] == True:
+        y -= 0.8
+    if key[pygame.K_s] == True:
+        y += 0.8  
+        if event.type == pygame.KEYUP:
+            if event.key == pygame.K_LEFT:
+                player_x_directions = 0
+            if event.key == pygame.K_RIGHT:
+                player_x_directions = 0
+            if event.key == pygame.K_UP:
+                player_y_directions = 0  
+            if event.key == pygame.K_DOWN:
+                player_y_directions = 0            
+
 
     
     pygame.display.update()
