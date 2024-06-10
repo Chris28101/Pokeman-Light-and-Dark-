@@ -1,4 +1,5 @@
 import pygame
+
 from pygame import mixer
 
 
@@ -32,23 +33,23 @@ mc_x_position = 500
 mc_y_position = 500 
 
 #standing still in front 
-mc = pygame.image.load("sprites/mc.png")
+mc = pygame.image.load("mc/mc.png")
 screen.blit(mc,(mc_x_position,mc_y_position))
 
 #moving/stand right 
-mc_right = pygame.image.load("sprites/mc_right_side.png")
+# mc_right = pygame.image.load("sprites/mc_right_side.png")
 
 
 #moving/standing left 
 
 
 #making bg image
-background = pygame.image.load("sprites/background.png")
+background = pygame.image.load("backgrounds/background.png")
 background = pygame.transform.scale(background, (1000, 1000))
 
 # pokemon image
-dugtrio = pygame.image.load("sprites/dugtrio.png")
-dugtrio = pygame.transform.scale(dugtrio, (100, 100))
+# dugtrio = pygame.image.load("sprites/dugtrio.png")
+# dugtrio = pygame.transform.scale(dugtrio, (100, 100))
 dugtrio_x_position = 0
 dugtrio_y_position = 0
 
@@ -61,11 +62,12 @@ while run:
             run = False
 
     #makes mc bigger pr smaller 
-    mc_right = pygame.transform.scale(mc_right, (90,90))
+    # mc_right = pygame.transform.scale(mc_right, (90,90))
     mc = pygame.transform.scale(mc, (90,90))
-    # displays pokemon
-    screen.blit(dugtrio,(dugtrio_x_position, dugtrio_y_position))
+    # # displays pokemon
+    # screen.blit(dugtrio,(dugtrio_x_position, dugtrio_y_position))
     #displays main character
+    # screen.blit(mc_right,(mc_x_position,mc_y_position))
     
     # movment 
     key = pygame.key.get_pressed() 
@@ -74,7 +76,6 @@ while run:
     if key[pygame.K_d] == True:
         
         mc_x_position += 0.8
-        screen.blit(mc_right,(mc_x_position,mc_y_position))
         pygame.display.update
     if key[pygame.K_w] == True:
         mc_y_position -= 0.8
