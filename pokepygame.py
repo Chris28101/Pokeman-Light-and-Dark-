@@ -9,8 +9,8 @@ mixer.init()
 #loadingthe music 
 
 #Screen witdh and screen height
-screen_width = 1000
-screen_height = 1000
+screen_width = 1300
+screen_height = 1300
 #This is used to display the screen
 screen = pygame.display.set_mode((screen_height, screen_width))
 
@@ -45,7 +45,7 @@ screen.blit(mc,(mc_x_position,mc_y_position))
 
 #making bg image
 background = pygame.image.load("backgrounds/background.png")
-background = pygame.transform.scale(background, (1000, 1000))
+background = pygame.transform.scale(background, (1300, 1100))
 
 # pokemon image
 # dugtrio = pygame.image.load("sprites/dugtrio.png")
@@ -64,6 +64,7 @@ while run:
     #makes mc bigger pr smaller 
     # mc_right = pygame.transform.scale(mc_right, (90,90))
     mc = pygame.transform.scale(mc, (90,90))
+    screen.blit(mc,(mc_x_position,mc_y_position))
     # # displays pokemon
     # screen.blit(dugtrio,(dugtrio_x_position, dugtrio_y_position))
     #displays main character
@@ -72,15 +73,15 @@ while run:
     # movment 
     key = pygame.key.get_pressed() 
     if key[pygame.K_a] == True:
-        mc_x_position -= 0.8
+        mc_x_position -= 1
     if key[pygame.K_d] == True:
         
-        mc_x_position += 0.8
+        mc_x_position += 1
         pygame.display.update
     if key[pygame.K_w] == True:
-        mc_y_position -= 0.8
+        mc_y_position -= 1
     if key[pygame.K_s] == True:
-        mc_y_position += 0.8  
+        mc_y_position += 1 
     pygame.display.flip()
     #if user moves right the sprite switches to the right side image 
     if mc_x_position != 0:
